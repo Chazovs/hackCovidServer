@@ -40,3 +40,5 @@ Route::post(
 
 
 Route::resource('companies', 'CompanyController');
+
+Route::resource('branches', 'BranchController');
