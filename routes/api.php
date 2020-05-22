@@ -26,3 +26,5 @@ Route::resource('companies', 'CompanyAPIController');
 Route::resource('branches', 'BranchAPIController');
 
 Route::resource('states', 'StateAPIController');
+
+Route::resource('products', 'ProductAPIController');

@@ -15,3 +15,7 @@
     <a href="{{ route('regKeys.index') }}"><i class="fa fa-edit"></i><span>Reg Keys</span></a>
 </li>
 
+<li class="{{ Request::is('products*') ? 'active' : '' }}">
+    <a href="{{ route('products.index') }}"><i class="fa fa-edit"></i><span>Products</span></a>
+</li>
+

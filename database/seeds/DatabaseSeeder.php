@@ -1,6 +1,9 @@
 <?php
 
+use App\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -11,6 +14,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        $input = [
+            'name'              => 'Сергей Чазов',
+            'email'             => 'demo@demo.com',
+            'password'          => Hash::make('demo'),
+            'email_verified_at' => Carbon::now(),
+        ];
+
+        /** @var User $user */
+        User::create($input);
     }
 }

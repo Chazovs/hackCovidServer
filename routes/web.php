@@ -46,3 +46,5 @@ Route::resource('branches', 'BranchController');
 Route::resource('states', 'StateController');
 
 Route::resource('regKeys', 'RegKeyController');
+
+Route::resource('products', 'ProductController');
