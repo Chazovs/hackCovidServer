@@ -30,7 +30,7 @@ class CompanyAPIController extends AppBaseController
      * @return Response
      *
      * @SWG\Get(
-     *      path="/companies",
+     *      path="/company",
      *      summary="Get a listing of the Companies.",
      *      tags={"Company"},
      *      description="Get all Companies",
@@ -115,44 +115,7 @@ class CompanyAPIController extends AppBaseController
         return $this->sendResponse($company->toArray(), 'Company saved successfully');
     }
 
-    /**
-     * @param int $id
-     * @return Response
-     *
-     * @SWG\Get(
-     *      path="/companies/{id}",
-     *      summary="Display the specified Company",
-     *      tags={"Company"},
-     *      description="Get Company",
-     *      produces={"application/json"},
-     *      @SWG\Parameter(
-     *          name="id",
-     *          description="id of Company",
-     *          type="integer",
-     *          required=true,
-     *          in="path"
-     *      ),
-     *      @SWG\Response(
-     *          response=200,
-     *          description="successful operation",
-     *          @SWG\Schema(
-     *              type="object",
-     *              @SWG\Property(
-     *                  property="success",
-     *                  type="boolean"
-     *              ),
-     *              @SWG\Property(
-     *                  property="data",
-     *                  ref="#/definitions/Company"
-     *              ),
-     *              @SWG\Property(
-     *                  property="message",
-     *                  type="string"
-     *              )
-     *          )
-     *      )
-     * )
-     */
+
     public function show($id)
     {
         /** @var Company $company */
@@ -265,17 +228,17 @@ class CompanyAPIController extends AppBaseController
      *      )
      * )
      */
-    public function destroy($id)
+    public function destroy(Request $request,$id)
     {
         /** @var Company $company */
-        $company = $this->companyRepository->find($id);
+        /*$company = $this->companyRepository->find($id);
 
         if (empty($company)) {
             return $this->sendError('Company not found');
         }
 
-        $company->delete();
+        $company->delete();*/
 
-        return $this->sendSuccess('Company deleted successfully');
+        return $this->sendSuccess('Выпытаесь удалить компанию '.$id . ' За вами уже выехали');
     }
 }

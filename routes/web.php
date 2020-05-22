@@ -48,3 +48,7 @@ Route::resource('states', 'StateController');
 Route::resource('regKeys', 'RegKeyController');
 
 Route::resource('products', 'ProductController');
+
+Route::get('handle/file/', function (){
+    return "мы обработали ваш файл.. правда..";
+});

@@ -21,6 +21,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 
+Route::post('/v1/handler/xml', 'XMLAPIController@getXML');
+
 Route::resource('companies', 'CompanyAPIController');
 
 Route::resource('branches', 'BranchAPIController');

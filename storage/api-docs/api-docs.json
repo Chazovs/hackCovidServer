@@ -205,7 +205,7 @@
                 }
             }
         },
-        "/companies": {
+        "/company": {
             "get": {
                 "tags": [
                     "Company"
@@ -237,7 +237,9 @@
                         }
                     }
                 }
-            },
+            }
+        },
+        "/companies": {
             "post": {
                 "tags": [
                     "Company"
@@ -280,44 +282,6 @@
             }
         },
         "/companies/{id}": {
-            "get": {
-                "tags": [
-                    "Company"
-                ],
-                "summary": "Display the specified Company",
-                "description": "Get Company",
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "id of Company",
-                        "required": true,
-                        "type": "integer"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "schema": {
-                            "properties": {
-                                "success": {
-                                    "type": "boolean"
-                                },
-                                "data": {
-                                    "$ref": "#/definitions/Company"
-                                },
-                                "message": {
-                                    "type": "string"
-                                }
-                            },
-                            "type": "object"
-                        }
-                    }
-                }
-            },
             "put": {
                 "tags": [
                     "Company"
@@ -409,7 +373,7 @@
                 "tags": [
                     "Product"
                 ],
-                "summary": "Get a listing of the Products.",
+                "summary": "\u041f\u043e\u043b\u0443\u0447\u0430\u0435\u043c \u0441\u043f\u0438\u0441\u043e\u043a \u0432\u0441\u0435\u0445 \u043b\u0435\u043a\u0430\u0440\u0441\u0442\u0432 \u043f\u0435\u0440\u0432\u043e\u0439 \u043d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c\u043e\u0441\u0442\u0438.",
                 "description": "Get all Products",
                 "produces": [
                     "application/json"
@@ -436,368 +400,40 @@
                         }
                     }
                 }
-            },
+            }
+        },
+        "/handler/xml": {
             "post": {
                 "tags": [
-                    "Product"
+                    "\u041e\u0442\u043f\u0440\u0430\u0432\u0438\u0442\u044c XML"
                 ],
-                "summary": "Store a newly created Product in storage",
-                "description": "Store Product",
+                "summary": "\u041e\u0431\u0440\u0430\u0431\u0430\u0442\u044b\u0432\u0430\u0435\u0442 \u0438 \u0437\u0430\u0433\u0440\u0443\u0436\u0430\u0435\u0442 XML \u0444\u0430\u0439\u043b\u044b, \u043d\u0430\u043f\u0438\u0441\u0430\u043d\u043d\u044b\u0435 \u0441\u043e\u0433\u043b\u0430\u0441\u043d\u043e \u0444\u043e\u0440\u043c\u0430\u0442\u0443  HackCovid",
+                "description": "\u041e\u0431\u0440\u0430\u0431\u0430\u0442\u044b\u0432\u0430\u0435\u0442 \u0438 \u0437\u0430\u0433\u0440\u0443\u0436\u0430\u0435\u0442 XML \u0444\u0430\u0439\u043b\u044b, \u043d\u0430\u043f\u0438\u0441\u0430\u043d\u043d\u044b\u0435 \u0441\u043e\u0433\u043b\u0430\u0441\u043d\u043e \u0444\u043e\u0440\u043c\u0430\u0442\u0443  HackCovid",
                 "produces": [
-                    "application/json"
+                    "multipart/form-data"
                 ],
                 "parameters": [
                     {
                         "name": "body",
                         "in": "body",
-                        "description": "Product that should be stored",
-                        "required": false,
-                        "schema": {
-                            "$ref": "#/definitions/Product"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "schema": {
-                            "properties": {
-                                "success": {
-                                    "type": "boolean"
-                                },
-                                "data": {
-                                    "$ref": "#/definitions/Product"
-                                },
-                                "message": {
-                                    "type": "string"
-                                }
-                            },
-                            "type": "object"
-                        }
-                    }
-                }
-            }
-        },
-        "/products/{id}": {
-            "get": {
-                "tags": [
-                    "Product"
-                ],
-                "summary": "Display the specified Product",
-                "description": "Get Product",
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "id of Product",
                         "required": true,
-                        "type": "integer"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
                         "schema": {
                             "properties": {
-                                "success": {
-                                    "type": "boolean"
+                                "secret": {
+                                    "description": "secret",
+                                    "type": "string"
                                 },
-                                "data": {
-                                    "$ref": "#/definitions/Product"
-                                },
-                                "message": {
+                                "link": {
+                                    "description": "link",
                                     "type": "string"
                                 }
-                            },
-                            "type": "object"
-                        }
-                    }
-                }
-            },
-            "put": {
-                "tags": [
-                    "Product"
-                ],
-                "summary": "Update the specified Product in storage",
-                "description": "Update Product",
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "id of Product",
-                        "required": true,
-                        "type": "integer"
-                    },
-                    {
-                        "name": "body",
-                        "in": "body",
-                        "description": "Product that should be updated",
-                        "required": false,
-                        "schema": {
-                            "$ref": "#/definitions/Product"
+                            }
                         }
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "successful operation",
-                        "schema": {
-                            "properties": {
-                                "success": {
-                                    "type": "boolean"
-                                },
-                                "data": {
-                                    "$ref": "#/definitions/Product"
-                                },
-                                "message": {
-                                    "type": "string"
-                                }
-                            },
-                            "type": "object"
-                        }
-                    }
-                }
-            },
-            "delete": {
-                "tags": [
-                    "Product"
-                ],
-                "summary": "Remove the specified Product from storage",
-                "description": "Delete Product",
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "id of Product",
-                        "required": true,
-                        "type": "integer"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "schema": {
-                            "properties": {
-                                "success": {
-                                    "type": "boolean"
-                                },
-                                "data": {
-                                    "type": "string"
-                                },
-                                "message": {
-                                    "type": "string"
-                                }
-                            },
-                            "type": "object"
-                        }
-                    }
-                }
-            }
-        },
-        "/states": {
-            "get": {
-                "tags": [
-                    "State"
-                ],
-                "summary": "Get a listing of the States.",
-                "description": "Get all States",
-                "produces": [
-                    "application/json"
-                ],
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "schema": {
-                            "properties": {
-                                "success": {
-                                    "type": "boolean"
-                                },
-                                "data": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/definitions/State"
-                                    }
-                                },
-                                "message": {
-                                    "type": "string"
-                                }
-                            },
-                            "type": "object"
-                        }
-                    }
-                }
-            },
-            "post": {
-                "tags": [
-                    "State"
-                ],
-                "summary": "Store a newly created State in storage",
-                "description": "Store State",
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "body",
-                        "in": "body",
-                        "description": "State that should be stored",
-                        "required": false,
-                        "schema": {
-                            "$ref": "#/definitions/State"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "schema": {
-                            "properties": {
-                                "success": {
-                                    "type": "boolean"
-                                },
-                                "data": {
-                                    "$ref": "#/definitions/State"
-                                },
-                                "message": {
-                                    "type": "string"
-                                }
-                            },
-                            "type": "object"
-                        }
-                    }
-                }
-            }
-        },
-        "/states/{id}": {
-            "get": {
-                "tags": [
-                    "State"
-                ],
-                "summary": "Display the specified State",
-                "description": "Get State",
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "id of State",
-                        "required": true,
-                        "type": "integer"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "schema": {
-                            "properties": {
-                                "success": {
-                                    "type": "boolean"
-                                },
-                                "data": {
-                                    "$ref": "#/definitions/State"
-                                },
-                                "message": {
-                                    "type": "string"
-                                }
-                            },
-                            "type": "object"
-                        }
-                    }
-                }
-            },
-            "put": {
-                "tags": [
-                    "State"
-                ],
-                "summary": "Update the specified State in storage",
-                "description": "Update State",
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "id of State",
-                        "required": true,
-                        "type": "integer"
-                    },
-                    {
-                        "name": "body",
-                        "in": "body",
-                        "description": "State that should be updated",
-                        "required": false,
-                        "schema": {
-                            "$ref": "#/definitions/State"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "schema": {
-                            "properties": {
-                                "success": {
-                                    "type": "boolean"
-                                },
-                                "data": {
-                                    "$ref": "#/definitions/State"
-                                },
-                                "message": {
-                                    "type": "string"
-                                }
-                            },
-                            "type": "object"
-                        }
-                    }
-                }
-            },
-            "delete": {
-                "tags": [
-                    "State"
-                ],
-                "summary": "Remove the specified State from storage",
-                "description": "Delete State",
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "id of State",
-                        "required": true,
-                        "type": "integer"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "successful operation",
-                        "schema": {
-                            "properties": {
-                                "success": {
-                                    "type": "boolean"
-                                },
-                                "data": {
-                                    "type": "string"
-                                },
-                                "message": {
-                                    "type": "string"
-                                }
-                            },
-                            "type": "object"
-                        }
+                        "description": "successful operation"
                     }
                 }
             }
